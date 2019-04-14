@@ -18,8 +18,7 @@ const SerialsList = ({moveBack, TVSerialsList}) => {
                 {TVSerialsList.length > 0 && TVSerialsList.map(el => <ListItem key={el.show.id} title={el.show.name} image={el.show.image} id={el.show.id}/> )}
             </List>
             <Divider/>
-        </div>
-        
+        </div>   
     );
 };
 

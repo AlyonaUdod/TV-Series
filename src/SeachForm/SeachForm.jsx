@@ -20,13 +20,13 @@ const SeachForm = ({handlerInputChange, clearSeachInput, queryText, seachSerials
 
     function seachSerialsTVMaze(e){
         if(queryText){
-            e.preventDefault()
-           seachSerials(queryText)
+            e.preventDefault();
+            seachSerials(queryText);
         };
     };
 
     function handleKeyDown(e){
-        if (e.keyCode === 13) {
+        if(e.keyCode === 13){
             seachSerialsTVMaze(e);
         };
     };

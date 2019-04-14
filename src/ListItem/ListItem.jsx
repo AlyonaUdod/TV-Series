@@ -1,15 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { Image, List, Button } from 'semantic-ui-react';
+import { addCurrentSerial } from '../redux/actions/currentSerialAction';
 import styles from './ListItem.module.css';
-import {addCurrentSerial} from '../redux/actions/currentSerialAction';
 
-const SeachItem = ({image, title, id, TVSerialsList, getCurrentSerial}) => {
+const ListItem = ({image, title, id, TVSerialsList, getCurrentSerial}) => {
 
     function getSerial(id){
-        let cS = TVSerialsList.find(el => el.show.id === id)
-        getCurrentSerial(cS)
-    }
+        let cS = TVSerialsList.find(el => el.show.id === id);
+        getCurrentSerial(cS);
+    };
 
     return (
     <List.Item style={{display: 'flex', alignItems: 'center'}} onClick={() => getSerial(id)}>  
@@ -40,4 +40,4 @@ function MDTP (dispatch) {
     };
 };
 
-export default connect(MSTP, MDTP)(SeachItem);
+export default connect(MSTP, MDTP)(ListItem);

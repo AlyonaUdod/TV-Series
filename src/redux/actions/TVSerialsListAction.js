@@ -1,24 +1,24 @@
 import * as actionTypes from '../actions/types';
-import { getSerialsList} from '../api/apiTVMaze';
+import { getSerialsList } from '../api/apiTVMaze';
 
 export const queryTVSerials = (param) => dispatch => {
     return getSerialsList(param)
-    .then(res => dispatch(seachVideo(res.data)))
-    .catch(err=> console.error(err));
+        .then(res => dispatch(seachVideo(res.data)))
+        .catch(err=> console.error(err));
 };
 
 export function seachVideo(data) {
-    if(data.length !== 0) {
+    if(data.length !== 0){
         return {
             type: actionTypes.SEACH_VIDEO, 
             payload: data,
          };
-    } else{
+    } else {
         return {
             type: actionTypes.ADD_ERROR, 
             payload: 'No TV Serial was found, try again',
          };
-    }
+    };
 };
 
 export function clearSeach(){

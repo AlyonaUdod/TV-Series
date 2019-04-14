@@ -8,10 +8,12 @@ import styles from './SerialInfo.module.css';
 const SerialInfo = ({cS, TVSL, moveBack, getCurrentSerial}) => {
 
     function getSerial(id){
-        window.scrollTo(0, 0);
-        let cS = TVSL.find(el => el.show.id === id)
-        getCurrentSerial(cS)
-    }
+        if(cS.show.id !== id){
+            window.scrollTo(0, 0);
+            let cS = TVSL.find(el => el.show.id === id);
+            getCurrentSerial(cS);
+        };
+    };
 
     return (
         <div className={styles.card}>    

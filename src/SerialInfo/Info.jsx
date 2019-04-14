@@ -21,15 +21,15 @@ const Info = ({cS}) => {
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell>Genres</Table.Cell>
-                            <Table.Cell style={{fontWeight: '700'}}>{cS.show.genres ? cS.show.genres.join(', ') : '---'}</Table.Cell>
+                            <Table.Cell style={{fontWeight: '700'}}>{cS.show.genres.length > 0 ? cS.show.genres.join(', ') : '---'}</Table.Cell>
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell width={3}>Rating</Table.Cell>
-                            <Table.Cell>{cS.show.rating.average ? cS.show.rating.average : '---'}</Table.Cell>
+                            <Table.Cell style={{fontWeight: '700'}}>{cS.show.rating.average ? cS.show.rating.average : '---'}</Table.Cell>
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell>Network</Table.Cell>
-                            <Table.Cell><span style={{fontWeight: '700'}}>{cS.show.network.name ? cS.show.network.name : '---'}</span>, {cS.show.language}.</Table.Cell>
+                            <Table.Cell><span style={{fontWeight: '700'}}>{cS.show.network ? cS.show.network.name : cS.show.webChannel ? cS.show.webChannel.name : '---'}</span>, {cS.show.language}.</Table.Cell>
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell>Year</Table.Cell>
@@ -37,7 +37,7 @@ const Info = ({cS}) => {
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell> OfficialSite</Table.Cell>
-                            <Table.Cell>{cS.show.officialSite ? <a href={cS.show.officialSite} target="_blank" rel="noopener noreferrer">Go to webSite</a> : '---'}</Table.Cell>
+                            <Table.Cell style={{fontWeight: '700'}}>{cS.show.officialSite ? <a href={cS.show.officialSite} target="_blank" rel="noopener noreferrer">Go to webSite</a> : '---'}</Table.Cell>
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell>Description</Table.Cell>
