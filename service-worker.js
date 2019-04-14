@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/AlyonaUdod/TV-Series/precache-manifest.cbd9da26a320f546e599a1f49d59fc03.js"
+  "/TV-Series/precache-manifest.1f779050a755ed72e0b4c5ca56652932.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/AlyonaUdod/TV-Series/index.html", {
+workbox.routing.registerNavigationRoute("/TV-Series/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
