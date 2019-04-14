@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/AlyonaUdod/TV-Series/precache-manifest.de8ece2672a99bca350171d298176e10.js"
+  "/AlyonaUdod/TV-Series/precache-manifest.251f0c0643c31715ee9ee43b6f497301.js"
 );
 
 workbox.clientsClaim();
