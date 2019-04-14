@@ -7,25 +7,42 @@ import SeachForm from './SeachForm/SeachForm';
 import SerialsList from './SerialsList/SerialsList';
 import SerialInfo from './SerialInfo/SerialInfo';
 
+import {clearInput} from './redux/actions/queryTextAction';
+import {clearSeach} from './redux/actions/TVSerialsListAction';
+import {clearQueryError} from './redux/actions/errorAction';
+
 class App extends Component {
 
   componentDidMount(){
-    this.props.history.push('/seach')
+    if(this.props.TVSerialsList.length === 0 && !this.props.currentSerial.score){
+      this.props.history.push('/seach')
+    }
   }
 
   componentDidUpdate(nextProps){
-    if(nextProps.TVSerialsList.length !== this.props.TVSerialsList.length) {
-        this.props.history.push('/list')
-        
+    if(nextProps.TVSerialsList.length !== this.props.TVSerialsList.length && this.props.TVSerialsList[0] ) {
+       this.props.history.push('/list')
+       this.props.clearError()
+       window.scrollTo(0, 0);
     }
+    if(this.props.currentSerial.score && nextProps.currentSerial.score !== this.props.currentSerial.score){
+        this.props.history.push('/info')
+        window.scrollTo(0, 0);
+    }
+  }
+
+  moveBackToSeach = () => {
+    this.props.history.push('/seach')
+    this.props.clearStore()
+    this.props.clearSeachInput()
   }
 
   render() {
     return (
       <Switch>
         <Route path='/seach' component={SeachForm}/>
-        <Route path='/list' component={SerialsList}/>
-        <Route path='/info' component={SerialInfo}/>
+        <Route path='/list' render={(props) => <SerialsList {...props} moveBack={this.moveBackToSeach}/>}/>
+        <Route path='/info' render={(props) => <SerialInfo {...props} moveBack={this.moveBackToSeach}/>}/>
       </Switch>
     );
   }
@@ -34,7 +51,22 @@ class App extends Component {
 function MSTP (state){
   return {
     TVSerialsList: state.TVSerialsList,
+    currentSerial: state.currentSerial,
   };
 };
 
-export default withRouter(connect(MSTP, null)(App));
+function MDTP (dispatch) {
+  return {
+      clearStore: function(){
+          dispatch(clearSeach());
+      },
+      clearSeachInput: function(){
+          dispatch(clearInput());
+      },
+      clearError: function(){
+        dispatch(clearQueryError());
+      }
+  };
+};
+
+export default withRouter(connect(MSTP, MDTP)(App));

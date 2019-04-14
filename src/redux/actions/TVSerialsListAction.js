@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/types';
-import { getSerialsList, getSerialInfo } from '../api/apiTVMaze';
+import { getSerialsList} from '../api/apiTVMaze';
 
 export const queryTVSerials = (param) => dispatch => {
     return getSerialsList(param)
@@ -24,6 +24,6 @@ export function seachVideo(data) {
 export function clearSeach(){
     return {
         type: actionTypes.CLEAR_SEACH_VIDEO,
-        payload: {},
+        payload: [],
     };
 };
