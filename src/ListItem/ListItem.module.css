@@ -1,0 +1,10 @@
+.listContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+.listContent img {
+    max-height: 10rem;
+}
